@@ -1,13 +1,26 @@
 // Code by Bryan O'Connor, c 2019, https://www.bryandoconnor.com
-var stack = "--+-";
-var plains = stack.split("+");
-plains = plains.filter(function(entry) { return entry.trim() != ''; });
+var testcases = ["-","-+","+-","+++","--+-"];
+console.log(testcases.length);
 
-x = 2 * plains.length;
-y = 2 * plains.length - 1;
+if(testcases.length < 10) {
+  alert("Error, limit of 10 minimum.");
+} else if(testcases.length > 100) {
+  alert("Error, limit of 100 maximum");
+}
 
-if(stack[0] === "+") {
-  console.log("Case #1", x);
-} else if(stack[0] === "-") {
-  console.log("Case #1", y);
+var num = 0;
+testcases.forEach(myFunction);
+
+function myFunction(testcases) {
+    num ++;
+    var plains = testcases.split("+");
+    plains = plains.filter(function(entry) { return entry.trim() != ''; });
+    x = 2 * plains.length;
+    y = 2 * plains.length - 1;
+
+  if(testcases[0] === "+") {
+    console.log("Case #" + num, x);
+  } else if(testcases[0] === "-") {
+    console.log("Case #" + num, y);
+  }
 }
